@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Conversor de Números</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+        <!-- <script  src="conversao.js"></script> -->
+
+        <!-- Load Babel -->
+        <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+        <!-- Your custom script here -->
+        <script type="text/babel">
+        
+
+            function binarioDecimal() { // Converte Binário para Decimal
+
+            	let num = document.getElementById('binario').value;
+	            let calc = Array();
+				let x = 0;
+				let resultDecimal = 0
+
+                if (num.search('[^01]') !== -1) { // Verifica se são digitados apenas 0 e 1
+
+                    document.getElementById('binario').value = ''
+                    document.getElementById('decimal').value = ''
+                    alert("Digite apenas 0 e 1")
+
+                } else {
+
+				    for (let i = (num.length - 1) ; i >= 0; i--) {
+                            
+				        calc[i] = parseInt(num.charAt(i)) * Math.pow(2, x)
+				        x++
+				        resultDecimal += calc[i] 
+                    }
+
+				    document.getElementById('decimal').value = resultDecimal
+
+                } // Fim else
+                
+            }// Fim função binarioDecimal
+
+            function decimalBinario() { // Converte Decimal para Binário
+
+            	let num = document.getElementById('decimal').value;
+            	let quociente = Array(); // Resulado da divisão por 2
+				let resto = Array(); // Resto da divisão por 2
+				let i = 0; // Indice
+
+            	if (num.search('[^0-9]') == -1) { // Verifica se é apenas números
+
+                    while(parseInt(num) > 1){// Efetua calculo de base 2
+
+                        resto.unshift((num % 2).toString())
+                        quociente[i] = Math.floor(num / 2)
+                        num = Math.floor(num / 2)
+
+                        i++
+                    } // Fim while() calculo de base 2
+
+                    // Reajusta os valores para impressões
+                    var z = quociente.toString()
+                    let resultBinario = z.charAt(z.length - 1)
+                    
+                    resto.forEach(function(valor){
+                        resultBinario += valor
+                    })
+
+		            document.getElementById('binario').value = resultBinario
+            	
+                } else {
+
+                    document.getElementById('binario').value = ''
+                    document.getElementById('decimal').value = ''
+                    alert("Digite apenas números")
+
+                }// Fim if() Verifica se é apenas números
+            } // Fim decimalBinario()
+
+            // Copiar valores Binários
+                const textBinario = document.getElementById('binario');
+                const copyBtnBinario = document.getElementById('copyBinario');
+
+                copyBtnBinario.addEventListener('click', ()=> {
+                    textBinario.select();
+                    document.execCommand('copy');
+                });
+            // Fim Copiar valores Binários
+
+            // Copiar valores Decimal
+                const textDecimal = document.getElementById('decimal');
+                const copyBtnDecimal = document.getElementById('copyDecimal');
+
+                copyBtnDecimal.addEventListener('click', ()=> {
+                    textDecimal.select();
+                    document.execCommand('copy');
+                });
+            // Fim Copiar valores Decimal
+
+            function limparCampo() { // Botão -> Limpa todos os campos
+                document.getElementById('binario').value = ''
+                document.getElementById('decimal').value = ''
+            }
+            
+        </script>
+</head>
+<body>
+
+	<form>
+		<fieldset>
+
+            <h3>Conversão de Base Numérica</h3>
+
+            <div id="grupo_result">
+
+                <div class="result">
+                    <label class="tipoNum">Binários</label>
+                    <div class="inputBtn">
+                        <input class="resultNum" id="binario" onkeyup="binarioDecimal()" type="text" placeholder=" Digite os números binários">
+                        <input type="submit" value="" class="btnCopy" id="copyBinario">
+                    </div>
+                    
+                </div>
+                    
+                <div class="result">
+                    <label class="tipoNum">Decimais</label>
+                    <div class="inputBtn">
+                        <input class="resultNum" id="decimal" onkeyup="decimalBinario()" type="text" placeholder=" Digite os números decimais">
+                        <input type="submit" value="" class="btnCopy" id="copyDecimal">
+                    </div>
+                </div>
+                                        
+            </div>
+
+            <div id="container_botao">
+                <button id="clean" onclick="limparCampo()">Limpar</button>
+            </div>
+
+</body>
+</html>

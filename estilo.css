@@ -1,0 +1,109 @@
+form{
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+img {
+    width: 6px;
+}
+
+fieldset {
+    border-radius: 5px;
+    background: #d5d8d5;
+    /*box-shadow: 0.5px 0.5px 7px 0.7px #b8b9b8 inset;
+    -webkit-box-shadow: 0.5px 0.5px 7px 0.7px #b8b9b8 inset;
+    -moz-box-shadow: 0.5px 0.5px 7px 0.7px #b8b9b8 inset;
+    -o-box-shadow: 0.5px 0.5px 7px 0.7px #b8b9b8 inset;*/
+    border: none;
+}
+
+h3{
+    text-align: center;
+}
+
+h3, .tipoNum {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/* Container da label & Grupo input/button */
+.result {
+    margin: 5px;
+    padding: 5px;
+}
+
+/* Titulos dos inputs */
+ .tipoNum { 
+    font-weight: bold;
+ }
+
+ /* Container Input & Button */
+ .inputBtn {
+    display: flex;
+     width: 98%;
+     /* border: solid 1px red; */
+ }
+
+ /* Input */
+ .resultNum {
+     flex-grow: 1;
+     height: 30px;
+     border: none;
+     border-radius: 3px 0 0 3px;
+     background: #fff;
+     transition: box-shadow 0.3s;
+     -webkit-transition: box-shadow 0.3s;
+     -moz-transition: box-shadow 0.3s;
+     -o-transition: box-shadow 0.3s;
+     /* background: url(imagens/icon-copy2.png) no-repeat left; */
+ }
+
+ .btnCopy {
+     width: 10%;
+     height: 32px;
+     border-radius: 0 3px 3px 0;
+     border: none;
+     background: #00FA9A url(imagens/icon-copy.png) no-repeat center;
+ }
+
+ #container_botao {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ /* Estilo do botão */
+ #container_botao button {
+     width: 100px;
+     height: 30px;
+     font-weight: bold;
+     border-radius: 3px;
+     background-color: #00FA9A;
+     border: none;
+     color: #044902;  
+ }
+
+
+/************** Efeitos **************/
+
+/* Efeitos Inputs */
+.resultNum:hover {
+    box-shadow: 0.5px 0.5px 10px #4682B4;
+    -webkit-box-shadow: 0.5px 0.5px 10px #4682B4;
+    -moz-box-shadow: 0.5px 0.5px 10px #4682B4;
+    -o-box-shadow: 0.5px 0.5px 10px #4682B4;
+}
+
+/* Efeitos botão */
+ #container_botao button:hover {
+    background-color:  #25b364;
+    color: white;
+    cursor: pointer;
+ }
+
+ .btnCopy:hover {
+    background: #25b364 url(imagens/copy_hover.png) no-repeat center;
+    color: white;
+    cursor: pointer;
+ }
+
